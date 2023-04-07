@@ -2,7 +2,7 @@
 #include <string.h>
 #define n 1000
 
-int check(char *a,char *b, char *c, int i){
+int check(const char *a,const char *b,const  char *c, int i){
     if(i + strlen(a) > strlen(c)) return 0;
     for(int j = 0; j < strlen(a); j++){
         if(a[j] != c[j+i]) return 0;
@@ -17,20 +17,21 @@ int main(){
     printf("\n%s ", a);
     printf("\n%s ", b);
     printf("\n%s ",c );
-
+    //hust mai mai mot tinh
     int k = 0;
-    char temp[n];
+    char temp[2*n];
+    memset(temp,0,sizeof(temp));
     for(int i = 0; i < strlen(c) ; i++){
         if(check(a,b,c,i)){
-            for(int j = 0; j < strlen(b); j++){
-                temp[j + k] = b[j];
-            }
+            strcat(temp,b);
             k = k + strlen(b);
-            i += strlen(b) - 1;
+            i = i + strlen(a) - 1;
+
         }
         else {
             temp[k] = c[i]; 
             k++;
+
         }
     }
     printf("\n%s ", temp);

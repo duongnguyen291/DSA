@@ -1,1 +1,1 @@
-    cout << " Value of x = " << x << "Address " << &x;
+            // k += b.size();

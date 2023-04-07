@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <cstring>
 using namespace std;
 int check(int i, string a, string b, string c){
     if(i + a.size() > c.size()) return 0;
@@ -12,18 +13,13 @@ int main(){
     getline(cin,a);
     getline(cin,b);
     getline(cin,c);
-    cout << a;
-    int k = 0;
     for(int i = 0; i < c.size(); i++){
-        if(check(i,a,b,c) == 1){
-            for(int j = 0 ;j < b.size(); j ++){
-                temp[j + k] = b[j];
-            }
-            k = k + b.size()- 1;
-            i += a.size();
+        if(check(i,a,b,c)){
+            temp+=b;
+            i += a.size() - 1;
         }
         else {
-            temp[k] = c[i]; k++;
+            temp+= c[i];         
         }
     }
     cout << temp;
