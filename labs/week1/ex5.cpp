@@ -14,7 +14,7 @@ int main(){
     getline(cin,c);
     cout << a;
     int k = 0;
-    for(int i = 0;i < c.size(); i++){
+    for(int i = 0; i < c.size(); i++){
         if(check(i,a,b,c) == 1){
             for(int j = 0 ;j < b.size(); j ++){
                 temp[j + k] = b[j];
