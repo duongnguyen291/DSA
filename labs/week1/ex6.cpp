@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
-    int row, column, count = 0, check;
+    int row, column;
     cin >> row >> column;
     int matrix[row][column];
     for(int i = 0; i < row ; i++){
@@ -11,6 +11,8 @@ int main(){
         }
             cout << endl;
     }
+    int count = 0;
+    int check;
     for(int j = 0; j < column ;j++){
         check = 1;
         for(int i = 0; i < row ;i++){
@@ -20,6 +22,6 @@ int main(){
         }
         count+=check;
     }
-    cout << check;
+    cout << count;
     return 0;
 }
