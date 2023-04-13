@@ -1,3 +1,4 @@
+//Chapter 1: Replace text
 #include <stdio.h>
 #include <string.h>
 #define n 1000

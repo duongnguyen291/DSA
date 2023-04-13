@@ -32,12 +32,9 @@ int main() {
             strcpy(p, b);
             p += strlen(b);
             i += strlen(a) - 1;
-                printf("1:%s\n", temp);
-
+            
         } else {
             *p++ = c[i];
-                printf("2:%s\n", temp);
-
         }
     }
 
