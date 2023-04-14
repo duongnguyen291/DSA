@@ -17,7 +17,5 @@ int main(){
     }
     cout << " The max value is : " << max;
 
-
-
     return 0;
 }
