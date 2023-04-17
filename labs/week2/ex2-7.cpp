@@ -354,10 +354,6 @@ struct bigint {
         return res;
     }
 };
-int giaithua(bigint a, bigint b){
-
-
-}
 int main() {
     ios :: sync_with_stdio(false);
     string A, B; cin >> A >> B;
