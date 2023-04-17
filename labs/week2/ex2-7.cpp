@@ -1,19 +1,11 @@
-//Problem: Chapter 2 - Compute C_k_n
-#include <vector>
-#include <cstdlib>
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <ctime>
+//Problem: Chapter 2 - Linear Integer Equation - coefficent 1
+#include<bits/stdc++.h>
 using namespace std;
- 
-// base and base_digits must be consistent
-const int base = 1000000000;
-const int base_digits = 9;
- 
+#define For(i,l,r) for(int i = l ; i <= r ; i++)
+#define Frr(i,l,r) for(int i = l ; i >= r ; i--)
+const int base = 1000000000; const int base_digits = 9;
 struct bigint {
-    vector<int> a;
-    int sign;
+    vector<int> a; int sign;
  
     bigint() :
         sign(1) {
@@ -354,15 +346,14 @@ struct bigint {
         return res;
     }
 };
-int giaithua(bigint a, bigint b){
 
-
-}
-int main() {
-    ios :: sync_with_stdio(false);
-    string A, B; cin >> A >> B;
-    bigint a(A);
-    bigint b(B);
-    cout << a * b << endl;
+signed main()
+{
+    int k, n ;
+    cin >> k >> n ;
+    bigint ans = 1 , temp = 1 ;
+    For(i,1,n-k) temp*= i ;
+    Frr(i,n,k+1) ans*= i ;
+    cout << (ans/temp)%1000000007;
     return 0;
 }
