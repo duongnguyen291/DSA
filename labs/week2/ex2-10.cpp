@@ -1,6 +1,9 @@
 //Problem: Chapter 2 - Permutation generation
 #include <bits/stdc++.h>
 using namespace std;
+int check(int a[], int n, int a){
+
+}
 void permutaion_generation(int n){
 if(n == 1){
     cout << n ;

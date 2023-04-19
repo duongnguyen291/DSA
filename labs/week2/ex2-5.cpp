@@ -15,4 +15,4 @@ int main() {
     cin >> n;
     generate_binary(n, "");
     return 0;
-}
+}   
