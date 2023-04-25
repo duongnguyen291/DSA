@@ -1,4 +1,4 @@
-//đếm xem có bao đường đi từ tọa độ (i,j) đến (a,b) chỉ được đi từ phải sang và xuống
+//đếm xem có bao đường đi từ tọa độ (i,j) đến (a,b) chỉ được đi từ phải sang và đi lên ( i < a,j < b)
 #include<bits/stdc++.h>
 using namespace std ;
 int CountPaths(int i , int j , int a , int b )
