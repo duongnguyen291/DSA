@@ -26,14 +26,12 @@ int binsearch(int low, int high, int s[], int key){
 }
 int binarySearch2( int low, int high, int s[], int key){
     if(low > high) return -1;
-    else if(low <= high){
+    else{
         int mid = (low + high)/2;
         if(s[mid] == key) return mid;
-        else if(s[mid] < key) return binarySearch2(mid + 1,high, s, key);
-        else if(s[mid] > key) return binarySearch2(low,mid - 1,s,key);
+        else if(s[mid] < key ) return binarySearch2(mid + 1, high,s,key);
+        else if(s[mid] > key) return binarySearch2(low, mid -1 ,s,key);
     }
-    else return -1;
-
 }
 int main(){
     int n,k ;
