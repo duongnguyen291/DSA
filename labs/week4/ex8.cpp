@@ -1,4 +1,4 @@
-//Problem: Chapter 2 - Linear Integer Equation - coefficent 1
+//Problem: Chapter 2 - Generate ways to represent n by sum of k non-decreasing positive integers
 #include <bits/stdc++.h> 
 using namespace std;
 int a[50],n,m;

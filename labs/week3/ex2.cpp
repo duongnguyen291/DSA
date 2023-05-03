@@ -1,12 +1,11 @@
-//Tính số dãy con trong dãy có tổng bằng sum
+//Tính số dãy (dãy dương) con trong dãy có tổng bằng sum
 #include<bits/stdc++.h>
 using namespace std ;
-int Solve(int a[],int n , int sum)
-{
-    if(n == 0) return 0 ;
-    if(a[n] == sum ) return 1 + Solve(a,n-1,sum) ;
-    if(a[n] > sum) return Solve(a,n-1,sum) ;
-    return Solve(a,n-1,sum) + Solve(a,n-1,sum-a[n]) ;
+int Solve(int a[],int n , int sum){
+    if(n == 0) return 0;
+    else if(a[n] == sum) return 1 + Solve(a, n - 1, sum);
+    else if(a[n] > sum ) return Solve(a, n - 1, sum);
+    return Solve(a,n-1, sum - a[n]) + solve(a, n - 1, sum);
 }
 int main()
 {
