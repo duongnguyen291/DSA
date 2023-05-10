@@ -5,9 +5,9 @@ typedef struct{
     double math;
     double physical;
 }NoteType;
-xstruct node{
+typedef struct node{
     NoteType data;
-    struct node *next;
+    node *next;
 };
 
 
