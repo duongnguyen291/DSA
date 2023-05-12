@@ -21,7 +21,7 @@ void generate_binary(int n, string s, string con) {
 int main() {
     int n;
     const string s = "";
-     string con;
+    string con;
     cin >> n;
     cin >> con;
     generate_binary(n,s,con);
