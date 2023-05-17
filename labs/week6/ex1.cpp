@@ -18,6 +18,20 @@ void Try(int k){
             }
             else Try(k + 1);
             visited[i] = 0; f -= c[a[k-1]][a[k]];
+        }   
+    }
+}
+void Try_again(int k){
+    for(int i = 1; i <= n;i++){
+        if(visited[i] == 0){
+            visited[i] = 1;
+            a[k] = i;
+            f+= c[a[k-1]][a[k]];
+            if(k == n){
+                fopt = min(fopt, f + c[a[k]][1]);
+            }
+            else Try_again(k+1);
+            visited[i] = 0; f-= c[a[k-1]][a[k]];
         }
     }
 }

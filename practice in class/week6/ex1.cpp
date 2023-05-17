@@ -55,7 +55,10 @@ node *Insert_Before(node *head,node *cur, int X){
         //determine the previous node of cur;
         node *prev = head;
         while(prev->next != cur) prev = prev->next;
+        prev-> next = new_node;
+        new_node->next = cur; 
     }
+    return new_node;
 }
 node *Insert_Last(node *head, int X){ //pass by value
     node *new_node = makeNode(X);
