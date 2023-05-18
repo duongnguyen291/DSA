@@ -1,4 +1,4 @@
-//Count soduku
+//Count soduku bài này output sai: nguyên nhân, sai hàm check
 #include <bits/stdc++.h>
 using namespace std;
 int a[9][9]; // lưu ý hàng đầu và cột đầu bằng 0, hàng cuối và cột cuối bằng 9 
@@ -16,32 +16,39 @@ int check(int i, int r, int c){
     //check ô nhỏ 3x3 
     int r1 = 3*(r/3);
     int c1 = 3*(c/3);
-    for(int u = r1; u <= r1+2;u++){
+    for(int u = r1 + 3; u <= r1+2;u++){
         for(int v = c1; v <= c1+2; v++){
-            if(a[u][v] == i) return 0;
+            if(a[u][v] == i) {return 0;}
         }   
     }
+    // if(col % 3 == 0) col = (col - 3) ;
+    // else col = col - (col % 3);
+    // if(row % 3 == 0) row = row - 3;
+    // else row = row - (row % 3);
     return 1;
 }
 void Try(int r, int c){
     if(a[r][c] != 0){
         if(r == 8 && c == 8) cnt++;
-        else if(c == 8) Try(r + 1,c);
-        else Try(r, c + 1);
+        else if(c == 8 && r!=8) {
+            Try(r + 1,c);
+        }
+        else {
+            Try(r, c + 1);
+        }
     }
     else{
         for(int i = 1; i <= 9;i++){
-            if(check(i,r,c)){
+            if(check(i,r,c) == 1){
                 a[r][c] = i;
                 if(r == 8 && c == 8) cnt++;
-                else if(c == 8){
+                else if(c == 8 && r != 8 ){
                     Try(r+1,c); 
-                    a[r][c] = 0;
                 } 
                 else {
                     Try(r, c + 1); 
-                    a[r][c] = 0;
                 }
+                a[r][c] = 0;
             }
         }
     }
