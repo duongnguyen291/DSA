@@ -16,7 +16,7 @@ int check(int i, int r, int c){
     //check ô nhỏ 3x3 
     int r1 = 3*(r/3);
     int c1 = 3*(c/3);
-    for(int u = r1 + 3; u <= r1+2;u++){
+    for(int u = r1; u <= r1+2;u++){
         for(int v = c1; v <= c1+2; v++){
             if(a[u][v] == i) {return 0;}
         }   
