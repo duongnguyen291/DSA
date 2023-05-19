@@ -52,6 +52,13 @@ node *InsertToLast(node *head, int X){
     }
     return head;
 }
+node *InsertToLastRecursive(node *head, int v){
+    if(head == NULL) return makeNode(v);
+    else{
+        head->next = InsertToLastRecursive(head->next,v);
+    }
+    return head;
+}
 void printlist(node *head){
     node *cur = new node();
     for(cur  = head; cur != NULL; cur = cur ->next){

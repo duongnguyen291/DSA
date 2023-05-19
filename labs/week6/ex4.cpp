@@ -1,7 +1,7 @@
 //Count soduku bài này output sai: nguyên nhân, sai hàm check
 #include <bits/stdc++.h>
 using namespace std;
-int a[9][9]; // lưu ý hàng đầu và cột đầu bằng 0, hàng cuối và cột cuối bằng 9 
+int a[11][11]; // lưu ý hàng đầu và cột đầu bằng 0, hàng cuối và cột cuối bằng 9 
 int cnt = 0;
 //kiểm tra điều kiện
 int check(int i, int r, int c){
@@ -28,10 +28,11 @@ int check(int i, int r, int c){
     return 1;
 }
 void Try(int r, int c){
+    if(r==8 && c==10 ) cout << "VAi lon loi r" << endl;
     if(a[r][c] != 0){
         if(r == 8 && c == 8) cnt++;
         else if(c == 8 && r!=8) {
-            Try(r + 1,c);
+            Try(r + 1,0);
         }
         else {
             Try(r, c + 1);
