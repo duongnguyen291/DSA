@@ -56,7 +56,8 @@ node *InsertAfter(node *head, int u,int v){
     p->next = new_node;
     return head;
 }
-node *InsertBefore(node *head, int u, int v){
+//lỗi không add được befor
+node *InsertBefore2(node *head, int u, int v){
     if(head == NULL) return NULL;
     if(head ->data == v ) return InsertToHead(head,u);
     node *prev = NULL, *p = head;
@@ -72,6 +73,7 @@ node *InsertBefore(node *head, int u, int v){
     new_node->next = p;
     return head;
 }
+//lỗi xóa hết phần tử
 node *removeNode(node *head, int k){
     if(head == NULL) return NULL;
     while(head->data == k){ //vị trí k ở đầu
@@ -158,7 +160,7 @@ int main(){
             int d,m;
             cin >> d >> m ;
             if(findNode(head, d) != NULL)
-                head = InsertBefore(head,d,m);
+                head = InsertBefore2(head,d,m);
         }
         else if(s == "remove"){
             cin >> k;
