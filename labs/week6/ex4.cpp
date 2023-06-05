@@ -1,4 +1,4 @@
-//Count soduku bài này output sai: nguyên nhân, sai hàm check
+//Count soduku bài này output sai: nguyên nhân, sai cái hàm đệ quy ở chỗ try
 #include <bits/stdc++.h>
 using namespace std;
 int a[11][11]; // lưu ý hàng đầu và cột đầu bằng 0, hàng cuối và cột cuối bằng 9 

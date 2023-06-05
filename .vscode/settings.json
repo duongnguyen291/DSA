@@ -15,7 +15,11 @@
         "cmath": "cpp",
         "thread": "cpp",
         "new": "cpp",
-        "*.exe": "cpp"
+        "*.exe": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "vector": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

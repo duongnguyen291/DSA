@@ -1,14 +1,7 @@
 5
 5 4 3 2 1
-remove 5
-remove 100
-remove 1
-addlast 3
-addlast 10
-addfirst 1
+addlast 9
+addfirst 8
 addafter 10 4
-addbefore 7 2
 remove 1
-reverse
-remove 10
 #

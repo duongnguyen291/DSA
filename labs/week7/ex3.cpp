@@ -15,10 +15,12 @@ node *makeNode(int v){
 node *findNode(node *head, int k){
     node *cur = head;
     while(cur!=NULL){
-        if(cur->data == k) break;
+        if(cur->data == k) {
+            return cur;    
+        }
         cur = cur->next;
     }
-    return cur;
+    return NULL;
 }
 node *InsertToLast(node *head, int X){ //pass by value
     node *new_node = makeNode(X);
@@ -73,6 +75,22 @@ node *InsertBefore2(node *head, int u, int v){
     new_node->next = p;
     return head;
 }
+void addBefore(node **head,int x, int y)
+{
+    node *tmp = makeNode(x);
+    if((*head)->data == x){
+        tmp->next=(*head);
+        *head = tmp;
+    }
+    else{
+            node* tmp2 = *head;
+        while(tmp2->next->data != y){
+            tmp2 = tmp2->next;
+        }
+        tmp->next = tmp2->next;
+        tmp2->next = tmp;
+    }
+}
 //lỗi xóa hết phần tử
 node *removeNode(node *head, int k){
     if(head == NULL) return NULL;
@@ -109,22 +127,22 @@ node *removeNode(node *head, int k){
     return head;
 }
 node *revert(node *head){
-    node *before, *cur = head,*after = cur->next;
+    node *before = NULL, *cur = head,*after = NULL;
     while(cur!=NULL){
         after = cur->next;
         cur->next = before;
         before = cur;
         cur = after;
     }
-    head = cur;
+    head = before;
     return head;
 }
+
 void printList(node *head){
     node *cur = new node();
     for(cur = head; cur !=NULL;cur= cur->next){
         cout << cur->data <<" "; 
     }
-    cout << endl;
 }
 int main(){
     int n,v,k;
@@ -153,13 +171,13 @@ int main(){
         else if(s == "addafter"){
             int d,m;
             cin >> d >> m ;
-            if(findNode(head, d) != NULL)
+            if(findNode(head, m) != NULL)
                 head = InsertAfter(head,d,m);
         }
         else if(s == "addbefore"){
             int d,m;
             cin >> d >> m ;
-            if(findNode(head, d) != NULL)
+            if(findNode(head, m) !=NULL)
                 head = InsertBefore2(head,d,m);
         }
         else if(s == "remove"){
@@ -170,6 +188,7 @@ int main(){
         else if(s == "reverse"){
             if(head != NULL)
             head = revert(head);
+            // Reverse(&head);
         }
         printList(head);
     }
