@@ -39,6 +39,7 @@ int check_dia(int m){
                 //check the dia from left above to righ below
                 for(int l = i + 1,  k = j + 1; l < m && k < m; l++,k++){
                     if(a[i][j] == a[l][k]) return 0;
+                }
                 
                 //check the dia from righ above to left below
                 for(int l = i - 1,  k = j - 1; l >= 0 && k >= 0; l--, k--){
