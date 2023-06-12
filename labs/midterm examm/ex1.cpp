@@ -19,14 +19,17 @@ int check(int i, int k){
         if(a[j] == i) 
             return 0;
     }
-    return 1;
+    if(k%i == 0 || i%k == 0) return 1;
+    else {
+        return 0;
+    }
 }
 
 void Try(int k){
     for(int i = 1; i <= n; i++ ){
         if(check(i,k)){
             a[k] = i;
-            if(k == n) cnt+=printsol();
+            if(k == n) cnt++;
             else Try(k+1);
         }
     }
