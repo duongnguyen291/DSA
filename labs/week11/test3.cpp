@@ -28,7 +28,7 @@ node *findNode(node *head,int v){
 //root->leftmost_child->righ
 void preOrder(node *root){
     if(root == NULL) return;
-    cout << root -> data << " ";
+    cout << root -> data;
     node *p = root->mostLeftChild;
     while(p!=NULL){
         preOrder(p);
@@ -46,7 +46,7 @@ void postOrder(node *root){
         p = p->rightSibling;
     }
     //2.Root 
-    cout << root->data << " ";
+    cout << root->data;
 }
 //left->root->right
 void inOrder(node *root){
@@ -54,7 +54,7 @@ void inOrder(node *root){
     if(root == NULL) return;
     node *p = root->mostLeftChild;
     inOrder(p);
-    cout << root->data<< " ";
+    cout << root->data;
     while(p!=NULL){
         p = p->rightSibling;
         inOrder(p);
