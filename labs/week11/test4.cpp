@@ -17,13 +17,6 @@ node *makeNode(int id){
     newNode->rightSibling = NULL;
     return newNode;
 }
-node *findNode(node *head,int v){
-    if(head == NULL) return NULL;
-    if(head->id == v) return head;
-    node *p = findNode(head->mostLeftChild,v);
-    if(p != NULL) return p;
-    return findNode(head->rightSibling,v);
-}
 //gốc-> trái ->phải
 void preOrder(node *head){
     if(head == NULL) return;
@@ -45,30 +38,29 @@ int height(node *head){
     return h+1;
 }
 
-int depth(node *head, node *u){
-    if(head == NULL) return 0;
-    if(head ==  u) return 1;
-    int d = depth(head->mostLeftChild,u);
-    if(d != 0) return d+1;
-    return depth(head->rightSibling,u);
-}
 int calculateDepthLCRS(node* root, node* u) {
     if (root == NULL || u == NULL) {
         return 0;
     }
     
     if (root == u) {
-        return 1;
+        return 0;
     }
     
     int depth = calculateDepthLCRS(root->mostLeftChild, u);
     if (depth != -1) {
-        return depth +1 ;
+        return depth + 1;
     }
     
-    return  calculateDepthLCRS(root->rightSibling, u);
+    return calculateDepthLCRS(root->rightSibling, u);
 }
-
+node *findNode(node *head,int v){
+    if(head == NULL) return NULL;
+    if(head->id == v) return head;
+    node *p = findNode(head->mostLeftChild,v);
+    if(p != NULL) return p;
+    return findNode(head->rightSibling,v);
+}
 void insertNode(node *root, int u, int v){
     if(findNode(root,u) != NULL) return;
     node *p = findNode(root,v);
@@ -88,7 +80,7 @@ void insertNode(node *root, int u, int v){
 }
 int main(){
     string s;
-    freopen("test4.txt","r",stdin);
+    //freopen("test4.txt","r",stdin);
     node *root = NULL;
     while(true){
         cin >> s;
@@ -110,8 +102,7 @@ int main(){
         else if(s == "Depth"){
             int u;
             cin >> u;
-            // cout << calculateDepthLCRS(root,findNode(root,u)) << "\n";
-            cout << depth(root,findNode(root,u)) << "\n";
+            cout << height(findNode(root,u)) << "\n";
         }
         else if(s == "*"){
             break;
