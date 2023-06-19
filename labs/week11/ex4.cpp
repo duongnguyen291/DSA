@@ -17,7 +17,17 @@ node *makeNode(int id){
     newNode->rightSibling = NULL;
     return newNode;
 }
-int depth(int *head){
+//gốc-> trái ->phải
+void preOrder(int *head){
+    if(head == NULL) return;
+    cout << head->data << " ";
+    node p = head->mostLeftChild;
+    while(p!=NULL){
+        postOrder(p);
+        p = p->rightSibling;
+    }
+}
+int height(int *head){
     if(head == NULL) return 0;
     int h = 0;
     node *p = head->mostLeftChild; 
@@ -28,7 +38,32 @@ int depth(int *head){
     return h+1;
 }
 
+int calculateHeight(node* p) {
+    if (p == NULL) {
+        return 0;
+    } else {
+        int leftHeight = calculateHeight(p->mostLeftChild);
+        int rightHeight = calculateHeight(p->rightSibling);
 
+        return 1 + max(leftHeight, rightHeight);
+    }
+}
+int calculateDepthLCRS(node* root, node* u) {
+    if (root == NULL || u == NULL) {
+        return 0;
+    }
+    
+    if (root == u) {
+        return 0;
+    }
+    
+    int depth = calculateDepthLCRS(root->mostLeftChild, u);
+    if (depth != -1) {
+        return depth + 1;
+    }
+    
+    return calculateDepthLCRS(root->rightSibling, u);
+}
 int main(){
     string s;
     //freopen("test4.txt","r",stdin);
