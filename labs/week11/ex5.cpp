@@ -36,7 +36,7 @@ void insertNode(node *head, int u, int v){
 int CountLeaves(node *head){
     if(head == NULL) return 0;
     if(head->leftMostChild == NULL){ 
-        head = head ->rightSibling;
+        // head = head ->rightSibling;
         return 1;
     }
     int cnt = 0;
