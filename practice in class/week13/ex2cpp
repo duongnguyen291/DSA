@@ -28,7 +28,6 @@ void quicksort(int* arr, int low, int high) {
         quicksort(arr, pivot + 1, high);
     }
 }
-
 int main(){
     cin >> n;
     int a[n];
