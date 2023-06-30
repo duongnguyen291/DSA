@@ -10,10 +10,10 @@ int partition(int* arr, int low, int high) {
         // If the current element is smaller than or equal to the pivot
         if (arr[j] <= pivot) {
             i++;  // Increment the index of the smaller element
-            swap(&arr[i], &arr[j]);
+            swap(arr[i], arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[high]);
+    swap(arr[i + 1], arr[high]);
     return i + 1;
 }
 
