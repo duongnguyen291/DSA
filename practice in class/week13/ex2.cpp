@@ -10,10 +10,10 @@ int partition(int* arr, int low, int high) {
         // If the current element is smaller than or equal to the pivot
         if (arr[j] <= pivot) {
             i++;  // Increment the index of the smaller element
-            swap(&arr[i], &arr[j]);
+            swap(arr[i], arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[high]);
+    swap(arr[i + 1], arr[high]);
     return i + 1;
 }
 
@@ -29,14 +29,18 @@ void quicksort(int* arr, int low, int high) {
     }
 }
 int main(){
-    cin >> n;
-    int a[n];
-    for(int i = 0; i < n;i++){
-        cin >> a[i];
-    }
+    // cin >> n;
+    // int a[n];
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    // for(int i = 0; i < n;i++){
+    //     cin >> a[i];
+    // }
     //quick sort
-    quicksort(a, 0, n-1);
+    quicksort(arr, 0, n-1);
     for(int i = 0; i < n;i++){
-        cout << a[i] << " ";
+        cout << arr[i] << " ";
     }
+    for (int i = 0; i < 6; i++)
+        cout << arr[i] << " ";
+    cout << endl;
 }
