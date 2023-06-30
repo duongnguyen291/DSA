@@ -10,6 +10,6 @@ int main(){
     cout << *ptr << "\n";
     cout << *ptr_ptr << "\n";
     
-
+    //check
     return 0;
 }
