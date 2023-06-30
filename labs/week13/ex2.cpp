@@ -1,4 +1,4 @@
-    //Problem: Dynamic Programming: Longest Common Subsequence
+//Problem: Dynamic Programming: Longest Common Subsequence
     #include <bits/stdc++.h>
     using namespace std;
     #define size 10000
@@ -12,20 +12,21 @@
         if(X[i] == Y[j]) memory[i][j] = 1+LCS(i-1,j-1);
         else{
             memory[i][j] = max(LCS(i-1,j),LCS(i,j-1));\
-            return memory[i][j];
         }
+            return memory[i][j];
 
     }
     int main(){
         int m,n;
+        freopen("test2.txt","r",stdin);
         cin >> n >> m;
         for(int i = 0; i < n;i++){
             cin >> X[i];
         }
-        for(int i = 0; i < m;i++){
+        for(int i = 0; i <= m;i++){
             cin >> Y[i];
         }
-        for(int i = 0; i < n;i++){
+        for(int i = 0; i <= n;i++){
             for(int j = 0;j<m;j++){
                 memory[i][j] = -1;
             }
