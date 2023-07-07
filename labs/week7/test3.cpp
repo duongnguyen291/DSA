@@ -84,7 +84,6 @@ void Remove(Node **head, int x)
         tmp->next = tmp->next->next;
         free(tmp2);
     }
-
 }
 
 void printList(Node *head)
