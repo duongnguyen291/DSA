@@ -82,7 +82,7 @@ void insertNode(Node* root, int u, int v) {
     Node* p = find_Node(root, v);
     if (p == NULL) return;
     
-//    Node* new_node = makeTreeNode(u);
+    //Node* new_node = makeTreeNode(u);
     Node* left = p->leftmost_child;
     if (left == NULL) { //If the node hasn't have any child
         p->leftmost_child = makeTreeNode(u);
