@@ -6,8 +6,10 @@ void selectionSort(int *a, int size);
 void mergeSort(int a[], int left, int right);
 void quickSort(int a[], int low, int high);
 int partition(int a[], int low, int high);
-void heapSort(int *a, int size);
+void heapify(int arr[], int n, int i);
+void heapSort(int arr[], int n);
 void merge(int arr[], int left, int mid, int right);
+
 int main(){
     freopen("test1.txt","r",stdin);
     int a[10000];
@@ -112,4 +114,48 @@ int partition(int a[], int low, int high){
     }
     swap(a[i+1],a[high]);
     return i+1;
-}
+
+  
+// To heapify a subtree rooted with node i which is: để heapify một cây con gốc với nút i là
+// an index in arr[]. n is size of heap 
+void heapify(int arr[], int n, int i) 
+{ 
+    int largest = i; // Initialize largest as root 
+    int l = 2*i + 1; // left = 2*i + 1 
+    int r = 2*i + 2; // right = 2*i + 2 
+  
+    // If left child is larger than root 
+    if (l < n && arr[l] > arr[largest]) 
+        largest = l; 
+  
+    // If right child is larger than largest so far 
+    if (r < n && arr[r] > arr[largest]) 
+        largest = r; 
+  
+    // If largest is not root 
+    if (largest != i) 
+    { 
+        swap(arr[i], arr[largest]); 
+  
+        // Recursively heapify the affected sub-tree 
+        heapify(arr, n, largest); 
+    } 
+} 
+  
+// main function to do heap sort 
+void heapSort(int arr[], int n) 
+{ 
+    // Build heap (rearrange array): xây dựng heap (sắp xếp lại mảng)
+    for (int i = n / 2 - 1; i >= 0; i--) 
+        heapify(arr, n, i); 
+  
+    // trích xuất từng phần từ một từ heap
+    for (int i=n-1; i>0; i--) 
+    { 
+        // Move current root to end : di truyển gốc hiện tại đến cuối
+        swap(arr[0], arr[i]); 
+  
+        // call max heapify on the reduced heap : gọi max heapify trên heap đã giảm
+        heapify(arr, i, 0); 
+    } 
+} 
