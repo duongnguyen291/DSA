@@ -24,9 +24,7 @@ int binarySearch(int *a, int l, int r, int k){
     }
     return -1;
 }
-void treeSort(node *r){
-    
-}
+
 node* findBinarySearch(node *r, int x){
     if(r == NULL || r->data == x) return r;
     if(r->data > x) return findBinarySearch(r->left,x);
