@@ -1,88 +1,96 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 typedef struct node{
-    char name[50];
-    char email[50];
+    string name, email;
     node *left;
     node *right;
-} node;
-
-node* makeNode(const char* name, const char* email) {
-    node* newNode = new node;
-    strcpy(newNode->name, name);
-    strcpy(newNode->email, email);
+}node;
+node *makeNode(string name, string email){
+    node *newNode = NULL;
+    // newNode = new node;
+    newNode = new node(); //nếu dùng hàm malloc
+    if(newNode == NULL) {cout << "Out of memory\n"; exit(1);}
+    newNode->name = name;
+    newNode->email = email;
     newNode->left = NULL;
     newNode->right = NULL;
     return newNode;
 }
-
-node* findNode(node* r, const char* name) {
-    if (r == NULL) return NULL;
-    if (strcmp(r->name, name) == 0) return r;
-    node* result = findNode(r->left, name);
-    if (result != NULL) return result;
-    return findNode(r->right, name);
+node *findNode(node *r,string name){
+    //find node with id = v on the 
+    if(r == NULL) return NULL;
+    if(r->name == name) return r;
+    node *result = findNode(r->left,name);
+    if(result != NULL) return result;
+    return findNode(r->right,name);   
 }
-
-void preOrder(node* r) {
-    if (r == NULL) return;
+void preOrder(node *r){
+    if(r == NULL) return;
     cout << r->email << " ";
     preOrder(r->left);
-    preOrder(r->right);
+    preOrder(r->right);    
+    cout << endl;
 }
-
-void inOrder(node* r) {
-    if (r == NULL) return;
+void inOrder(node *r){
+    if(r == NULL) return;
     inOrder(r->left);
     cout << r->email << " ";
-    inOrder(r->right);
+    inOrder(r->right);    
 }
-
-void postOrder(node* r) {
-    if (r == NULL) return;
+void postOrder(node *r){
+    if(r == NULL) return;
     postOrder(r->left);
-    postOrder(r->right);
+    postOrder(r->right);    
     cout << r->email << " ";
 }
-
-void insertNode(node* r, const char* name, const char* email) {
-    if (r == NULL) return;
-    if (r->left == NULL) {
-        r->left = makeNode(name, email);
-        return;
+node* insertNode(node* r, string name, string email) {
+    if (r == NULL) {
+        return makeNode(name, email);
+    } else if (r->left == NULL) {
+        r->left = insertNode(r->left, name, email);
+    } else if (r->right == NULL) {
+        r->right = insertNode(r->right, name, email);
+    } else {
+        r->left = insertNode(r->left, name, email);
+        r->right = insertNode(r->right, name, email);
     }
-    else if (r->right == NULL) {
-        r->right = makeNode(name, email);
-        return;
-    }
-    else {
-        insertNode(r->left, name, email);
-        insertNode(r->right, name, email);
-    }
+    return r;
 }
 
-void removeNode(node* r, const char* name) {
-    if (r == NULL) return;
-    if (strcmp(r->name, name) == 0) {
-        delete r;
+node* removeNode(node* r, string name) {
+    if (r == NULL) {
+        return NULL;
+    } else if (r->name == name) {
+        node *del = r;
+        if((r->left == NULL&& r->right != NULL) || (r->left != NULL&& r->right == NULL)){
+            r = (r->left == NULL) ? r->right : r->left;
+            delete del;
+            return r;
+        }
+        else if(r->left != NULL & r->right != NULL){
+            r = r->left;
+            r->right = del->right;
+            delete del;
+            return r;
+        }
+        else return NULL;
+    } else {
+        r->left = removeNode(r->left, name);
+        r->right = removeNode(r->right, name);
     }
-    else {
-        removeNode(r->left, name);
-        removeNode(r->right, name);
-    }
+    return r;
 }
 
 void Store1(node* r, ofstream& file) {
     if (r == NULL) return;
-    file << "Name: " << r->name << " - Email: " << r->email << endl;
+    file << "Name: " << r->name <<" - Email: " << r->email <<  endl;
     Store1(r->left, file);
     Store1(r->right, file);
 }
 
 void Store(const string& filename, node* root) {
     ofstream file(filename);
-    if (!file) {
+    if (!file) {  // Check if the file is opened successfully
         cerr << "Error opening file: " << filename << endl;
         return;
     }
@@ -92,47 +100,58 @@ void Store(const string& filename, node* root) {
     file.close();
     cout << "Data stored in file: " << filename << endl;
 }
-
-int main() {
+int main(){
     string s;
-    char name[50], email[50];
-    node* root = NULL;
-    //freopen("test2.txt", "r", stdin);
-    while (true) {
+    string name, email;
+    freopen("test2.txt","r",stdin);
+    node *root = NULL;
+    while(true){
         cin >> s;
-        if (s == "Load") {
+        if(s == "Load"){
             int n;
             cin >> n;
-            for (int i = 0; i < n; i++) {
+            for(int i = 0;i<n;i++){
                 cin >> name >> email;
-                insertNode(root, name, email);
-                cout << root->name << " " << root->email << endl;
+                // cout << name << " " << email << endl;
+                root = insertNode(root,name,email);
             }
         }
-        else if (s == "Find") {
+        else if(s == "Find"){
             cin >> name;
-            node* temp = findNode(root, name);
-            cout << temp->email << endl;
+            node *temp;
+            temp = findNode(root,name);
+            if(temp == NULL) continue;
+            else{
+                cout << temp->email << endl;
+            }
         }
-        else if (s == "Insert") {
-            cin >> name >> email;
-            insertNode(root, name, email);
+        else if(s == "Insert"){
+           cin >> name >> email;
+           root = insertNode(root,name,email);
         }
-        else if (s == "Remove") {
-            cin >> name;
-            removeNode(root, name);
+        else if(s == "Remove"){
+           cin >> name;
+           root = removeNode(root,name);
         }
-        else if (s == "print") {
+        else if(s == "print"){
             preOrder(root);
         }
-        else if (s == "Store") {
+        else if(s == "Store"){
             string filename;
             cin >> filename;
-            Store(filename, root);
+           Store(filename,root);
         }
-        else if (s == "Quit") {
+        else if(s == "Quit"){
+            cout << "Bye\n";
             break;
         }
     }
     return 0;
 }
+/*•Load: Nạp dữ liệu từ bàn phím gồm n sinh viên
+•Find<student_name>: Trả về hồ sơ của sinh viên có tên được nhập vào
+•Insert <student_name> <email>: Chèn một hồ sơ sinh viên mới vào cuối danh sách
+•Remove <student_name>: loại bỏ hồ sơ sinh viên
+•Store <filename>: Lưu trữ danh sách hồ sơ lênfile văn bản
+•Quit: thoát khỏi chương trình
+Yêu cầu: Sử dụng cây nhị phân tìm kiếm*/

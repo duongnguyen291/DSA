@@ -123,7 +123,7 @@ int main(){
            root = removeNode(root,name);
         }
         else if(s == "print"){
-            preOrder(root);
+            inOrder(root);
         }
         else if(s == "Store"){
             string filename;
