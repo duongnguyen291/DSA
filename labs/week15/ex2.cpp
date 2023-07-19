@@ -1,4 +1,4 @@
-            test.push_back(s);
+
 //bài luyện trên lớp
 #include <iostream>
 #include <vector>

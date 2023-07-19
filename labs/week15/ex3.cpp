@@ -23,6 +23,7 @@ node* makeNode(string v){
     p->leftmostChild = p->rightSibling= NULL;
     return p;
 }
+
 //hàm find node sẽ trả về địa chỉ của 
 //name bằng newman trong nodes[10e4]
 //vì ta chưa thể xây dựng được tree luôn ngay tức khắc
@@ -47,36 +48,51 @@ int countChild(node *root){
     if(root == NULL) return 0;
     int h = 0;
     node *p = root->leftmostChild;
-    while(p !=NULL){
-        h = max(h,countChild(p)); 
+    while(p != NULL){
+        // h = max(h,countChild(p)); 
+        h+=1+countChild(p);
         // h là max của h và chiều cao của cây con trái
         p = p->rightSibling;
     }
     return h;
 }
 
+int genderation(node *root) {
+    if (root == NULL) return 0;
+    int maxGeneration = 0;
+    node *p = root->leftmostChild;
+    while (p != NULL) {
+        maxGeneration = max(maxGeneration, 1 + genderation(p));
+        p = p->rightSibling;
+    }
+    return maxGeneration;
+}
 int main(){
-    string c,p;
+
+    freopen("test3.txt","r",stdin);
     //1.read
-    while(1){
+    string c,p;
+    while(true){
         cin >> c;
+        // cout << "c = " << c << "\n";
         if(c == "***") break;
         cin >> p;
+        // cout << "p = " << p << "\n";
         node *chilNode = findNode(c);
         if(chilNode == NULL) {
             nodeArr[cnt] = makeNode(c);
-            cnt++;
             chilNode = nodeArr[cnt];
+            cnt++;
         }
         node *parNode = findNode(p);
         if(parNode == NULL) {
             nodeArr[cnt] = makeNode(p);
-            cnt++;
             parNode = nodeArr[cnt];
+            cnt++;
         }
-        addChild(chilNode, parNode); //chèn vào cuối danh sách của parentNode
-
+        addChild(chilNode, parNode); //chèn vào cuối danh sách của parentNode       
     }
+    // cout << "Done reading\n";
     //2.Read Command
     string cmd;
     while(1){
@@ -84,15 +100,17 @@ int main(){
         if(cmd == "***") break;
         if(cmd == "descendants"){
             cin >> c;
+            // cout << "c = " << c << "\n";
             node *chilNode = findNode(c);
             if(chilNode == NULL) cout << "0\n";
             else cout << countChild(chilNode) << "\n";
         }
         else if(cmd == "generation"){
             cin >> c;
+            // cout << "c = " << c << "\n";
             node *chilNode = findNode(c);
             if(chilNode == NULL) cout << "0\n";
-            else cout << countChild(chilNode) + 1 << "\n";
+            else cout << genderation(chilNode) << "\n";
         }
     }
     return 0;

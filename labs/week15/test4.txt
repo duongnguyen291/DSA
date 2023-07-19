@@ -1,0 +1,10 @@
+4
+5
+2
+*
+find 3
+insert 4
+find 2
+insert 3
+find 3
+***
