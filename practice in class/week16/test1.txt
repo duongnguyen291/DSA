@@ -1,0 +1,20 @@
+insert 43
+insert 31
+insert 64
+insert 20
+insert 28
+insert 33
+insert 40
+insert 56
+insert 89
+insert 47
+insert 59
+print
+delete 64
+insert 68
+findMax
+findMin 
+predecessor 59
+successor 33
+
+*

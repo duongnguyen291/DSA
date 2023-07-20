@@ -1,0 +1,13 @@
+insert 10
+insert 2
+insert 4
+insert 9
+insert 14
+insert 18
+insert 16
+insert 5
+insert 20
+print
+findMax
+findMin 
+*
