@@ -11,34 +11,39 @@ void printArray(int *a, int size){
     printf("\n");
 }
 void bubbleSort(int *a, int size){
-    for(int i = 0;i < size;i++){
-        for(int j =  0;j < size - i-1;j++){
-            if(a[j] > a[j+1]) swap(&a[j], &a[j+1]);
+    for(int i = 0; i < size;i++){
+        for(int j = 0; j < size - i - 1;j++){
+            if(a[j] > a[j+1]) swap(&a[j],&a[j+1]);
         }
     }
 }
 void selectionSort(int *a, int size){
-    int min;
-    for(int i = 0;i < size - 1;i++){
-        min = i;
-        for(int j = i+1; j < size;j++){
-            if(a[min] > a[j]){ 
-                min = j;
-            }
+    for(int i = 0; i < size;i++){
+        int min = i;
+        for(int j = i + 1; j < size; j++){
+            if(a[min] > a[j]) min = j;
         }
-        swap(&a[i], &a[min]);
+        swap(&a[min],&a[i]);
     }
 }
 void insertionSort(int *a, int size){
-    for(int i = 1;i <size;i++){
-        int pos = i;
+    for(int i = 0; i < size;i++){
+        int pos = i; 
         int temp = a[pos];
-        while(pos>0 && temp < a[pos-1]){
+        while(pos > 0 && temp < a[pos-1]){
             a[pos] = a[pos-1];
             pos--;
             a[pos] = temp;
         }
     }
+}
+int checkSorting(int *a, int n){
+    for(int i = 0; i < n - 1 ;i++){
+        if(a[i] > a[i+1]) {
+            return 0;
+        }
+    }
+    return 1;
 }
 int main(){
     freopen("test1.txt", "r", stdin);
@@ -47,6 +52,7 @@ int main(){
     for(int i = 0;i < n;i++) scanf("%d", &a[i]);
     insertionSort(a,n);
     printArray(a,n);
-    printf("test\n");
+    int temp = checkSorting(a,n);
+    printf("\n%d",temp);
     return 0;
 }

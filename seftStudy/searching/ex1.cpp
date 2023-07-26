@@ -20,10 +20,16 @@ int binarySearch(int *a, int l, int r, int key){
     }
     else -1;
 }
-
+void binaryString(string s, int k, int n){
+    if(k == n) cout << s << endl;
+    else {
+        binaryString(s + "1",k+1,n);
+        binaryString(s + "0",k+1,n);
+    }
+}
 int main(){
     int a[] = {4,2,3,2,56,1,6,66,7,78};
-
+    binaryString("",0,4);
 
 
 
