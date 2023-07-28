@@ -1,30 +1,12 @@
-/*Problem: Chapter 6. Hash Over Integers
-Description
-    A database contains a sequence of key k1, k2, ..., kn which are integers (1<=n<=100000). 
-    Perform a sequence of actions of two kinds:
-    · find k: find and return 1 if k exists in the database, and return 0, otherwise
-    · insert k: insert a key k into the database and return 1 if the insertion is successful 
-    (k does not exist in the database) and return 0 if the insertion is failed (k exists in the database)
-    Note that the value of any key is greater than or equal to 0 and less than or equal to 10
-    17
-    .
-Input
-    Two blocks of information. 
-    The first block contains a key of (k1,k2,...,kn) in each line. 
-    The first block is terminated with a line containing *. 
-    The second block is a sequence of actions of two finds described above: 
-    each line contains 2 string: cmd and k in which cmd = "find" or "insert" and k is the key 
-    (parameter of the action). The second block is terminated with a line containing ***. 
-    Note that the number of actions can be up to 100000.
-Output
-    Each line contains the result (0 or 1) of the corresponding action.
-*/
+//Problem: Chapter 6. Hash Over Integers
+
 #include <bits/stdc++.h> 
 using namespace std;
-#define MAX 1000000
+#define MAX 100000000
 typedef struct node{
     long long data;
-    node *next;
+    node *left;
+    node *right;
 }node;
 node *database[MAX+10];
 node *makeNode(long long x){
@@ -34,7 +16,7 @@ node *makeNode(long long x){
         exit(1);
     }
     p->data = x;
-    p->next = NULL;
+    p->left = p->right = NULL;
     return p;
 }
 
@@ -57,7 +39,7 @@ int main(){
     freopen("test4.txt","r",stdin);
     string s;
     long long k;
-    for(int i = 0;i < MAX + 10;i++) database[i] = NULL;
+    for(int i = 0;i < MAX+ 10;i++) database[i] = NULL;
     while(1){
         cin >> s;
         if(s == "*") break;
