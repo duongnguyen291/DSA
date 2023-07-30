@@ -6,13 +6,16 @@ void swap(int *a, int *b){
     *a = *b;
     *b = temp;
 }
+int check = 0;
 void printArray(int *a, int size){
     for(int i = 0;i < size;i++) printf("%d ", a[i]);
     printf("\n");
 }
 void bubbleSort(int *a, int size){
     for(int i = 0; i < size;i++){
+        check++;
         for(int j = 0; j < size - i - 1;j++){
+            
             if(a[j] > a[j+1]) swap(&a[j],&a[j+1]);
         }
     }
@@ -50,9 +53,10 @@ int main(){
     int n;
     scanf("%d", &n);
     for(int i = 0;i < n;i++) scanf("%d", &a[i]);
-    insertionSort(a,n);
+    bubbleSort(a,n);
     printArray(a,n);
     int temp = checkSorting(a,n);
     printf("\n%d",temp);
+    printf("\n%d",check);
     return 0;
 }

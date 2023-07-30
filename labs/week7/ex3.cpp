@@ -144,6 +144,11 @@ void printList(node *head){
         cout << cur->data <<" "; 
     }
 }
+void fun1(node *head){
+    if(head == NULL) return;
+    fun1(head->next);
+    cout << head->data << " ";
+}
 int main(){
     int n,v,k;
     node *head;
@@ -185,12 +190,16 @@ int main(){
             if(findNode(head,k) != NULL)
             head = removeNode(head, k);
         }
+        else if(s == "test"){
+            fun1(head);
+            cout << endl;
+        }
         else if(s == "reverse"){
             if(head != NULL)
             head = revert(head);
             // Reverse(&head);
         }
-        printList(head);
+        // printList(head);
     }
         // cout << 123;
     return 0;

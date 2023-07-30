@@ -1,7 +1,4 @@
 5
-5 4 3 2 1
-addlast 9
-addfirst 8
-addafter 10 4
-remove 1
+4 3 2 1 5
+test
 #
