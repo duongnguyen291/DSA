@@ -1,0 +1,42 @@
+U0003 P02 21:06:37 OK 5
+U0001 P01 22:03:44 OK 9
+U0003 P02 19:52:51 ERR 0
+U0004 P01 04:11:34 OK 6
+U0002 P02 18:48:29 OK 9
+U0004 P01 01:51:56 ERR 0
+U0003 P01 01:03:42 OK 5
+U0005 P01 08:26:37 ERR 0
+U0002 P02 04:55:30 OK 5
+U0001 P01 05:47:39 OK 3
+U0002 P01 00:49:51 OK 4
+U0002 P02 20:23:59 OK 3
+U0005 P02 18:04:28 OK 9
+U0001 P01 22:43:25 ERR 0
+U0002 P02 08:23:03 OK 7
+U0004 P02 16:59:39 OK 6
+U0004 P02 04:37:39 OK 4
+U0003 P02 23:47:13 ERR 0
+U0004 P01 08:08:35 ERR 0
+U0001 P01 21:36:09 OK 3
+#
+?number_submission_period 01:36:32 11:26:47
+?number_submission_period 15:25:54 22:04:26
+?number_submission_period 01:18:07 07:55:57
+?number_submission_period 00:34:58 08:06:23
+?number_submission_period 07:15:02 23:39:17
+?number_submission_period 08:08:19 21:47:23
+?number_submission_period 02:05:21 18:08:36
+?number_submission_period 01:00:32 02:07:42
+?number_submission_period 10:45:55 16:32:58
+?number_submission_period 06:22:47 11:48:31
+?number_submission_period 01:05:35 16:21:10
+?number_submission_period 06:06:43 12:35:26
+?number_submission_period 05:50:11 22:30:22
+?number_submission_period 07:07:05 14:02:28
+?number_submission_period 07:17:53 23:36:12
+?number_submission_period 05:04:46 12:18:33
+?number_submission_period 09:59:47 13:48:19
+?number_submission_period 15:31:12 17:47:16
+?number_submission_period 02:46:31 17:44:11
+?number_submission_period 06:16:42 15:25:48
+#
