@@ -58,15 +58,14 @@ void addRight(node *r, int u , int v){
     if(temp->right !=NULL) return;
     temp->right = makeNode(u);
 }
-int findDepth(node* root, int x)
-{
+int findDepth(node* root, int x){
     // Base case
     if (root == NULL)
         return -1;
     // Initialize distance as -1
     int dist = -1;
     // Check if x is current node=
-    if ((root->data == x)
+    if ((root->id == x)
         // Otherwise, check if x is
         // present in the left subtree
         || (dist = findDepth(root->left, x)) >= 0
@@ -75,32 +74,24 @@ int findDepth(node* root, int x)
         || (dist = findDepth(root->right, x)) >= 0)
         // Return depth of the node
         return dist + 1;
- 
     return dist;
 }
-int findHeightUtil(Node* root, int x,int& height)
-{
+int findHeightUtil(node* root, int x,int& height){
     // Base Case
     if (root == NULL) {
         return -1;
     }
- 
     // Store the maximum height of
     // the left and right subtree
     int leftHeight = findHeightUtil(
         root->left, x, height);
- 
-    int rightHeight
-        = findHeightUtil(
+    int rightHeight = findHeightUtil(
             root->right, x, height);
- 
     // Update height of the current node
     int ans = max(leftHeight, rightHeight) + 1;
- 
     // If current node is the required node
-    if (root->data == x)
+    if (root->id == x)
         height = ans;
- 
     return ans;
 }
 int main(){

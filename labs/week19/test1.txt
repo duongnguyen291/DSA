@@ -1,0 +1,27 @@
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$Update HN0001 4 10
+$Update HN0002 2 10
+$CountTotalPatients
+$Update HN0003 1 45
+$CountNumberPatientsOfPeriod 1 3
+$CountNumberPatientsOfRegion HN0002
+$FindNumberPatients HN0003 2
+$FindNumberPatients HN0003 1
+***

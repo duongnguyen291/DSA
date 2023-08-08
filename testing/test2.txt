@@ -1,0 +1,15 @@
+? buildTree
+0 0 5
+1 L 3
+1 R 4
+2 LL 7
+2 RR 9
+2 RL 6
+3 RLL 8
+-1
+? printInOrderTravel
+? countSpecialNodes
+3
+8
+-1
+-1

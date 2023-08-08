@@ -149,11 +149,30 @@ void fun1(node *head){
     fun1(head->next);
     cout << head->data << " ";
 }
+node *deleteNode(node *head, int v){
+    if(head == NULL) return head;
+    if(head->data == v){
+        node *temp = head;
+        head = head->next;
+        delete(temp);
+        return head;
+    }
+    node *temp = head;
+    node *prev = NULL;
+    while(temp!=NULL&&temp->data != v){
+        prev = temp;
+        temp = temp->next;
+    }
+
+    prev->next = temp->next;
+    delete temp;
+    return head;
+}
 int main(){
     int n,v,k;
     node *head;
     head = NULL;
-    freopen("test3-2.txt","r",stdin);
+    // freopen("test3-2.txt","r",stdin);
     cin >> n;
     for(int i = 0;i < n;i++){
         cin >> v;
@@ -188,10 +207,14 @@ int main(){
         else if(s == "remove"){
             cin >> k;
             if(findNode(head,k) != NULL)
-            head = removeNode(head, k);
+            head = deleteNode(head, k);
         }
         else if(s == "test"){
             fun1(head);
+            cout << endl;
+        }
+        else if(s == "print"){
+            printList(head);
             cout << endl;
         }
         else if(s == "reverse"){
@@ -199,7 +222,7 @@ int main(){
             head = revert(head);
             // Reverse(&head);
         }
-        // printList(head);
+      
     }
         // cout << 123;
     return 0;

@@ -9,5 +9,6 @@ insert 5
 insert 20
 print
 findMax
+inOrder
 findMin 
 *

@@ -1,0 +1,298 @@
+Input 1:
+? readCart
+-1
+? checkCartTotalPrice
+-1
+
+Output 1:
+Total: 0
+Total price: 0.00
+
+
+Input 2:
+? readCart
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+1
+2023-07-11 12:05:12
+100
+1000234002
+5
+2023-07-11 12:05:12
+5.5
+-1
+? checkCartTotalPrice
+-1
+
+Output 2:
+Total: 3
+Total price: 163.00
+
+
+Input 3:
+? readCart
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+1
+2023-07-11 12:05:12
+100
+1000234002
+5
+2023-07-11 12:05:12
+5.5
+-1
+? findItemsByID
+1000234001
+1000234005
+-1
+-1
+
+Output 3:
+Total: 3
+Item's already added at 2023-07-11 12:05:12
+Item NOT FOUND
+
+
+Input 4:
+? readCart
+-1
+? findItemsByID
+1000234001
+1000234005
+-1
+-1
+
+Output 4:
+Total: 0
+Item NOT FOUND
+Item NOT FOUND
+
+
+Input 5:
+? readCart
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+1
+2023-07-11 12:05:12
+100
+1000234002
+5
+2023-07-11 12:05:12
+5.5
+-1
+? reduceItemQuantityByIDs
+1000235002 1
+1000234002 1
+-1
+? findItemsByID
+1000235002
+-1
+? checkCartTotalPrice
+-1
+
+Output 5:
+Total: 3
+DONE Remove
+DONE Remove
+Item NOT FOUND
+Total price: 57.50
+
+
+Input 6:
+? readCart
+-1
+? reduceItemQuantityByIDs
+1000235002 1
+1000234002 1
+-1
+? findItemsByID
+1000235002
+-1
+? checkCartTotalPrice
+-1
+
+Output 6:
+Total: 0
+ID NOT FOUND
+ID NOT FOUND
+Item NOT FOUND
+Total price: 0.00
+
+
+Input 7:
+? readCart
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+1
+2023-07-11 12:05:12
+100
+1000234002
+5
+2023-07-11 12:05:12
+5.5
+-1
+? addNewItems
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+2
+2023-07-11 12:05:12
+100
+1003035002
+1
+2023-07-11 12:05:12
+10.5
+-1
+? checkCartTotalPrice
+? findItemsByID
+1003035002
+-1
+-1
+
+Output 7:
+Total: 3
+Total price: 409.00
+Item's already added at 2023-07-11 12:05:12
+
+
+Input 8:
+? addNewItems
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+2
+2023-07-11 12:05:12
+100
+-1
+? checkCartTotalPrice
+? findItemsByID
+1000235002
+-1
+-1
+
+Output 8:
+Total price: 235.50
+Item's already added at 2023-07-11 12:05:12
+
+
+Input 9:
+? checkCartTotalPrice
+? findItemsByID
+1000234001
+1000234005
+-1
+? reduceItemQuantityByIDs
+1000235002 1
+1000234002 1
+-1
+? findItemsByID
+1000235002
+-1
+? checkCartTotalPrice
+? addNewItems
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+2
+2023-07-11 12:05:12
+100
+-1
+? checkCartTotalPrice
+? findItemsByID
+1000235002
+-1
+-1
+
+Output 9:
+Total price: 0.00
+Item NOT FOUND
+Item NOT FOUND
+ID NOT FOUND
+ID NOT FOUND
+Item NOT FOUND
+Total price: 0.00
+Total price: 235.50
+Item's already added at 2023-07-11 12:05:12
+
+
+Input 10:
+? readCart
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+1
+2023-07-11 12:05:12
+100
+1000234002
+5
+2023-07-11 12:05:12
+5.5
+1001254021
+3
+2023-07-11 12:05:12
+5.5
+-1
+? checkCartTotalPrice
+? findItemsByID
+1000234001
+1000234005
+-1
+? reduceItemQuantityByIDs
+1000235002 1
+1000234002 1
+-1
+? findItemsByID
+1000235002
+-1
+? checkCartTotalPrice
+? addNewItems
+1000234001
+1
+2023-07-11 12:05:12
+35.5
+1000235002
+2
+2023-07-11 12:05:12
+100
+1007235072
+20
+2023-07-11 12:05:12
+3.5
+-1
+? checkCartTotalPrice
+? findItemsByID
+1000235002
+-1
+-1
+
+Output 10:
+Total: 4
+Total price: 179.50
+Item's already added at 2023-07-11 12:05:12
+Item NOT FOUND
+DONE Remove
+DONE Remove
+Item NOT FOUND
+Total price: 74.00
+Total price: 379.50
+Item's already added at 2023-07-11 12:05:12

@@ -95,40 +95,13 @@ node *insertNode2(node *r, int x){
     temp->parent = p;
     return temp;
 }
-node *deleteNode1(node *r, int x){
-//có thể dùng predecessor hoặc successor để thay trong case 3
-    if(r == NULL) return NULL;
-    if(x < r->data) r->left = deleteNode1(r->left,x);
-    else if(x > r->data) r->right = deleteNode1(r->right,x);
-    else{
-        if(r->left == NULL && r->right == NULL){
-            delete r;
-            return NULL;
-        }
-        else if(r->left == NULL || r->right == NULL){
-            node *temp = r->left;
-            if(temp == NULL) temp = r->right;
-            delete r;
-            return temp;
-        }
-        else{
-            node *temp = findMax(r->left);
-            r->data = temp->data;
-            r->left = deleteNode1(r->left,temp->data);
-        }
-    }
-    return r;
-    //ĐANG LỖI
-}
-node *deleteNode(node* root, int k)
-{
+node *deleteNode(node* root, int k){
     // Base case
     if (root == NULL)
         return root;
- 
     // Recursive calls for ancestors of
     // node to be deleted
-    if (root->data> k) {
+    if (root->data> k){
         root->left = deleteNode(root->left, k);
         return root;
     }
@@ -136,10 +109,7 @@ node *deleteNode(node* root, int k)
         root->right = deleteNode(root->right, k);
         return root;
     }
- 
-    // We reach here when root is the node
-    // to be deleted.
- 
+    // We reach here when root is the node to be deleted.
     // If one of the children is empty
     if (root->left == NULL) {
         node* temp = root->right;
@@ -151,19 +121,15 @@ node *deleteNode(node* root, int k)
         delete root;
         return temp;
     }
- 
     // If both children exist
     else {
- 
         node* succParent = root;
- 
         // Find successor
         node* succ = root->right;
         while (succ->left != NULL) {
             succParent = succ;
             succ = succ->left;
         }
- 
         // Delete successor.  Since successor
         // is always left child of its parent
         // we can safely make successor's right
@@ -174,10 +140,8 @@ node *deleteNode(node* root, int k)
             succParent->left = succ->right;
         else
             succParent->right = succ->right;
- 
         // Copy Successor Data to root
         root->data = succ->data;
- 
         // Delete Successor and return root
         delete succ;
         return root;

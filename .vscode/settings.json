@@ -69,7 +69,8 @@
         "streambuf": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "ex2cpp": "cpp"
+        "ex2cpp": "cpp",
+        "stdlib.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

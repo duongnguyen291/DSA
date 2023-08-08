@@ -1,0 +1,1 @@
+  cout << sorting[k%MAXX];

@@ -1,0 +1,205 @@
+Input 1:
+? buildTree
+0 0 5
+1 L 3
+1 R 4
+2 LL 7
+2 RR 9
+2 RL 6
+3 RLL 8
+-1
+? printInOrderTravel
+? countSpecialNodes
+3
+8
+-1
+-1
+
+Output 1:
+7 3 5 8 6 4 9 
+Total special nodes >=3: 7
+Total special nodes >=8: 2
+
+
+Input 2:
+? countSpecialNodes
+3
+8
+-1
+-1
+
+Output 2:
+Total special nodes >=3: 0
+Total special nodes >=8: 0
+
+
+Input 3:
+? buildTree
+0 0 21
+1 L 14
+1 R 8
+2 RL 15
+2 RR 17
+3 RLL 16
+3 RLR 3
+4 RLRL 9
+5 RLRLL 24
+6 RLRLLL 16
+6 RLRLLR 19
+-1
+? countSpecialNodes
+25
+8
+-1
+-1
+
+Output 3:
+Total special nodes >=25: 0
+Total special nodes >=8: 10
+
+
+Input 4:
+? buildTree
+0 0 5
+1 L 3
+1 R 4
+2 LL 7
+2 RR 9
+2 RL 6
+3 RLL 8
+-1
+? printInOrderTravel
+? printSmallestLeaf
+-1
+
+Output 4:
+7 3 5 8 6 4 9 
+Smallest Leaf : 7
+
+
+Input 5:
+? buildTree
+0 0 21
+1 L 14
+1 R 8
+2 RL 15
+2 RR 17
+3 RLL 16
+3 RLR 3
+4 RLRL 9
+5 RLRLL 24
+6 RLRLLL 16
+6 RLRLLR 19
+-1
+? printSmallestLeaf
+-1
+
+Output 5:
+Smallest Leaf : 14
+
+
+Input 6:
+? printSmallestLeaf
+-1
+
+Output 6:
+There is no leaf on the tree!
+
+
+Input 7:
+? buildTree
+0 0 5
+1 L 3
+1 R 4
+2 LL 7
+2 RR 9
+2 RL 6
+3 RLL 8
+-1
+? printInOrderTravel
+? hasDuplicateItem
+-1
+
+Output 7:
+7 3 5 8 6 4 9 
+There is no dulplicate item on the tree!
+
+
+Input 8:
+? buildTree
+0 0 5
+1 L 3
+1 R 5
+2 RL 7
+2 RR 4
+3 RRL 6
+4 RRLL 8
+4 RRLR 12
+5 RRLLR 10
+5 RRLRL 17
+-1
+? printInOrderTravel
+? hasDuplicateItem
+-1
+
+Output 8:
+3 5 7 5 8 10 6 17 12 4 
+Tree has some duplicate items!
+
+
+Input 9:
+? buildTree
+0 0 21
+1 L 14
+1 R 8
+2 RL 15
+2 RR 17
+3 RLL 26
+3 RLR 3
+4 RLRL 9
+5 RLRLL 24
+6 RLRLLL 16
+6 RLRLLR 19
+-1
+? printInOrderTravel
+? convertToBinarySearchTree
+? printInOrderTravel
+-1
+
+Output 9:
+14 21 26 15 16 24 19 9 3 8 17 
+3 8 9 14 15 16 17 19 21 24 26 
+
+
+Input 10:
+? buildTree
+0 0 21
+1 L 14
+1 R 8
+2 RL 15
+2 RR 17
+3 RLL 16
+3 RLR 3
+4 RLRL 9
+5 RLRLL 24
+6 RLRLLL 26
+6 RLRLLR 19
+-1
+? printInOrderTravel
+? printSmallestLeaf
+? countSpecialNodes
+3
+10
+-1
+? convertToBinarySearchTree
+? printInOrderTravel
+? printSmallestLeaf
+-1
+
+Output 10:
+14 21 16 15 26 24 19 9 3 8 17 
+Smallest Leaf : 14
+Total special nodes >=3: 11
+Total special nodes >=10: 8
+3 8 9 14 15 16 17 19 21 24 26 
+Smallest Leaf : 3
