@@ -83,11 +83,7 @@ void run(){
 	for(int i = 0; i < M; i++) T[i] = NULL;
 	for(int i = 0; i < N; i++) a[i] = 0;
 	char cmd[50];
-	char userID[11];
-	char problem[10];
-	int indexProblem;
-	char sub_time[10];
-	char status[10];
+	char userID[11];  char problem[10]; int indexProblem; char sub_time[10]; char status[10];
 	int point;
 	nbSubmissions= 0;
 	nbErrSubmissions = 0;
@@ -98,7 +94,6 @@ void run(){
 		indexProblem = (problem[1]-'0')*10 + problem[2]-'0';
 		scanf("%s %s %d",sub_time,status,&point);
 		int err = (strcmp(status,"ERR") == 0 ? 1 : 0);
-		//printf("read user %s, problem %s, status %s, point %d\n",cmd,problem,status,point);
 		updatePoint(cmd,indexProblem,point,err);
 		nbSubmissions++;
 		nbErrSubmissions += err;
@@ -107,7 +102,6 @@ void run(){
 	}
 	t[0] = 0;
 	for(int i = 1; i < N; i++) t[i] = t[i-1] + a[i];
-
 	char startTime[10], endTime[10];
 	while(1){
 		scanf("%s",cmd);
@@ -132,7 +126,6 @@ void run(){
 			int ans = 0;
 			if(p != NULL){
 				ans = p->totalPoint;
-				//printUser(p);
 			}
 			printf("%d\n",ans);
 		}else if(strcmp(cmd,"?number_submission_period")==0){
@@ -146,7 +139,7 @@ void run(){
 	}
 }
 int main(){
-	freopen("test1.txt","r",stdin);
+	freopen("input_testcase_20.txt","r",stdin);
 	//freopen("test/5-number_submission_period.txt","r",stdin);
 	run();
 	return 0;

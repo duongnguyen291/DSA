@@ -55,18 +55,17 @@ int numberErrorID(char *ID){
 int totalPoint(char *ID) {
     int k = atoi(&ID[1]);
     if (data[k % MAXX]==NULL) return 0;
-
     node *cur = data[k%MAXX];
-    int maxP[500] = {0}; // luu diem toi da cho moi problem
+    int maxP[100] = {0}; // luu diem toi da cho moi problem
     while (cur != NULL) {
         int index = atoi(&cur->problem[1]);
-        if (cur->point >= maxP[index]) {
+        if (cur->point > maxP[index]) {
             maxP[index] = cur->point;
         }
         cur = cur->next;
     }
     int res = 0;
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < 100; i++) {
         res += maxP[i];
     }
 
@@ -92,9 +91,8 @@ int numbertime(int h1, int m1, int s1, int h2, int m2, int s2) {
     }
     return count;
 }
-
 int main(){
-    freopen("test1.txt","r",stdin);
+    freopen("input_testcase_22.txt","r",stdin);
     char ID[10];
     char problem[10];
     int hour,minute,second;
