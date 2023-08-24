@@ -5,8 +5,7 @@ using namespace std;
 #define MAX 100000000
 typedef struct node{
     long long data;
-    node *left;
-    node *right;
+    node *next;
 }node;
 node *database[MAX+10];
 node *makeNode(long long x){
@@ -16,7 +15,7 @@ node *makeNode(long long x){
         exit(1);
     }
     p->data = x;
-    p->left = p->right = NULL;
+    p->next = NULL;
     return p;
 }
 

@@ -1,0 +1,11 @@
+MakeRoot 4
+AddRight 5 4
+AddLeft 3 4
+AddRight 8 5
+AddLeft 1 3
+AddLeft 7 8
+AddLeft 6 7
+AddRight 2 1
+AddRight 10 8
+AddLeft 9 10
+*
