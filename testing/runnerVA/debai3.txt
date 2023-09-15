@@ -1,0 +1,26 @@
+Description
+
+There is an integer array arr of length n. Two arrays b and c are called a perfect break of arr if:
+
+The lengths of arrays b and c are n.
+Elements in array b are in non-decreasing order.
+Elements in array c are in non-increasing order.
+They satisfy b[i] ≥ 0, c[i]≥ 0,and b[i] + c[i] = arr[i], for each i where 0 ≤ i <n.
+Find the number of possible perfect breaks of arr. Since the number can be large, return the value modulo1000000007, i.e. (10^9+7).
+
+Example
+n = 3
+
+arr = [2, 3, 2]
+
+b =[0, 1, 1], c =[2, 2, 1] is a perfect break because it satisfies all 4 conditions
+b and c have 3 elements
+bis non-decreasing order
+cis in non-increasing order
+elements of b and c are 0 or more and the sums of a[i] + b[i] = [2, 3, 2], which matches arr.
+b =[0, 1, 2], c =[2, 2, 0] is a perfect break.
+b =[0, 2, 2],c =[2, 1, 0] is a perfect break.
+b =[1, 2, 2], c =[1, 1, 0] is a perfect break.
+b =[1, 3, 2], c =[1, 0, 0] is not a perfect break because b is not non-decreasing.
+b =[1, 2, 2], c =[2, 1, 0] is not a perfect break because b[0] + c[0] ≠ arr[0].
+There are 4 possible perfect breaks of array arr.

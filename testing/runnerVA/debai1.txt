@@ -1,0 +1,52 @@
+Trading Platform
+Description
+
+A quantitative trading firm seeks to create a tool for querying the net profit/loss of the firm at any given time. The tool processes a list of events, each of which can be classified into one of four categories:
+
+BUYstockquantity: Signifies the purchase of <quantity> shares of stock <stock> at the market price.
+SELLstockquantity: Indicates the sale of <quantity> shares of stock <stock> at the market price.
+CHANGEstockprice: Signifies a change in the market price of <stock> by <price> amount, which can be either positive or negative.
+QUERY: Represents a query for the net profit/loss from the start of trading to the present.
+The tool should return a list of numbers corresponding to each QUERY event.
+
+Example
+
+For instance, given the list of events [“BUY googl 20”, “BUY aapl 50”, “CHANGE googl 6”, “QUERY”, “SELL aapl 10”, “CHANGE aapl -2”, “QUERY”].
+
+Events	Portfolio	Profit so far
+BUY googl 20	googl 20	0
+BUY aapl 50	googl 20
+aapl 50	0
+CHANGE googl 6	googl 20
+aapl 50	120
+QUERY		120
+SELL aapl 10	googl 20
+aapl 40	120
+CHANGE aapl -2	googl 20
+aapl 40	40
+QUERY	googl 20
+aapl 40	40
+Hence the answer should be [120, 40].
+
+
+Input
+string events[n]:the events to process
+
+1 ≤n≤ 10^5
+
+|events[i]| ≤ 21
+
+For query, SELL <stock> <quantity>, it is guaranteed that there are enough shares owned.
+
+1 ≤ quantity < 10^3
+
+The absolute value of a change in the price of any stock at any event will not exceed 10^3.
+
+STDIN            FUNCTION
+-----            --------
+2            →   n = 5
+BUY hackr 2  →   events = [“BUY hackr 2", “QUERY”]
+QUERY
+
+Output
+int[]:the answers to the "QUERY" events
