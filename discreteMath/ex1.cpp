@@ -23,7 +23,7 @@ void PrintCurPerm(){
 }
 int CheckLastPerm(){
     for(int i = 1;i <= n;i++){
-        if(a[i] != n - i + 1) return 0;
+        if(a[i] != n - i + 1) return 0; 
     }
     return 1;
 }
@@ -38,9 +38,26 @@ void GenAllPerm(){
         else stop = 1;
     }
 }
+int check(int i, int k){
+    for(int j = 0;j<k;j++){
+        if(a[j] == i) return 0;
+    }
+    if(k < 3) return 1;
+    if(a[k-1] < a[k - 2]) return 1;
+    return i < a[k - 1];
+}
+void Try(int k){
+    for(int i = 1;i<=n;i++){
+        if(check(i,k)){
+            a[k] = i;
+            if(k == n) PrintCurPerm();
+            else Try(k + 1);
+        }
+    }
+}
 int main(){
     cin >> n;
-    GenAllPerm();
+    Try(1);
 
     return 0;
 }
