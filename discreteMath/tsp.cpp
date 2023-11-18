@@ -3,12 +3,12 @@ using namespace std;
 const int N = 15;
 int n;
 int c[N][N];
-int x[N], x_opt[N] = {1};
+int x[N] = {1}, x_opt[N] = {1};
 int cur_cost = 0, f_opt = 100000;
 int visited[N];
 int Cmin = 0;
 void Try(int k){
-    for(int i = 2;i <= n;i++){
+    for(int i = 1;i <= n;i++){
         if(!visited[i]){
             x[k] = i;
             cur_cost += c[x[k-1]][i];
@@ -45,9 +45,9 @@ void input(){
 int main(){
     freopen("test2.txt","r",stdin);
     input();
-    Try(2);
+    Try(1);
     cout << f_opt << endl;
-    for(int i = 0; i<=n ;i++){
+    for(int i = 1; i<=n ;i++){
         cout << x_opt[i] << " ";
     }
     return 0;
