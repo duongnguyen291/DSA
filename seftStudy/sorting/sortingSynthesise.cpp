@@ -62,17 +62,15 @@ void merge(int arr[], int left, int mid, int right) {
     int i, j, k;
     int n1 = mid - left + 1;
     int n2 = right - mid;
-    // Tạo các mảng tạm để lưu các phần tử con
+    // Create temp arrays to save child elements
     int LeftArr[n1], RightArr[n2];
-    // Sao chép dữ liệu vào các mảng tạm
+    //copy the data into the temporary arrays
     for (i = 0; i < n1; i++)
         LeftArr[i] = arr[left + i];
     for (j = 0; j < n2; j++)
         RightArr[j] = arr[mid + 1 + j];
-    // Hợp nhất các mảng tạm thành mảng ban đầu
-    i = 0;
-    j = 0;
-    k = left;
+    // Initial index of first subarray
+    i = 0; j = 0; k = left;
     while (i < n1 && j < n2) {
         if (LeftArr[i] <= RightArr[j]) {
             arr[k] = LeftArr[i];
@@ -80,20 +78,17 @@ void merge(int arr[], int left, int mid, int right) {
         } else {
             arr[k] = RightArr[j];
             j++;
-        }
-        k++;
+        } k++;
     }
-    // Sao chép các phần tử còn lại của mảng LeftArr (nếu có)
+    // Copy the remaining elements of LeftArr (if any)
     while (i < n1) {
         arr[k] = LeftArr[i];
-        i++;
-        k++;
+        i++; k++;
     }
-    // Sao chép các phần tử còn lại của mảng RightArr (nếu có)
+    // Copy the remaining elements of RightArr (if any)
     while (j < n2) {
         arr[k] = RightArr[j];
-        j++;
-        k++;
+        j++; k++;
     }
 }
 void quickSort(int a[], int low, int high){
